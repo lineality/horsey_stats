@@ -2,9 +2,9 @@ horse_racing_linear_margin_v1
 label_kind=performance_score_regression
 threshold_used=400
 feature_count=6
-feature=age low_boundary=4 high_boundary=6 low_rate=338 high_rate=389
-feature=height low_boundary=136 high_boundary=none low_rate=260 high_rate=0
-feature=experience low_boundary=1 high_boundary=none low_rate=318 high_rate=0
-feature=weight low_boundary=623 high_boundary=1303 low_rate=0 high_rate=200
-feature=height_to_weight_ratio_times_one_thousand low_boundary=128 high_boundary=222 low_rate=200 high_rate=133
-feature=age_times_experience low_boundary=4 high_boundary=none low_rate=300 high_rate=0
+feature=age low_boundary=4 high_boundary=7 low_rate=342 high_rate=383
+feature=height low_boundary=none high_boundary=none low_rate=0 high_rate=0
+feature=experience low_boundary=1 high_boundary=none low_rate=325 high_rate=0
+feature=weight low_boundary=355 high_boundary=1303 low_rate=0 high_rate=266
+feature=height_to_weight_ratio_times_one_thousand low_boundary=128 high_boundary=321 low_rate=266 high_rate=0
+feature=age_times_experience low_boundary=4 high_boundary=none low_rate=311 high_rate=0

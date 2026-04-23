@@ -2,14 +2,14 @@
 
 In 2026 the world was stunned
 by the steam-release of 'horsey game'
-a emersive VR-world-simulator the likes of which
+an immersive VR-world-simulator the likes of which
 the multiverse had never dared to dream;
 global economics and geolpolitics
 would never be the same.
 
 Here is a (very preliminary) tree-model
-implimented in vanilla rust
-to examine the otherworldy wizardy 
+implemented in vanilla rust
+to examine the otherworldly wizardy
 of: horsey game
 
 # Command Line
