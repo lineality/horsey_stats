@@ -1,15 +1,15 @@
 # horsey_stats
 
-In 2026 the world was stunned
-by the steam-release of 'horsey game'
-an immersive VR-world-simulator the likes of which
-the multiverse had never dared to dream;
-global economics and geolpolitics
+In 2026 the world was stunned \
+by the steam-release of 'horsey game' \
+an immersive VR-world-simulator the likes of which \
+the multiverse had never dared to dream; \
+global macro-economics and geo-politics \
 would never be the same.
 
-Here is a (very preliminary) tree-model
-implemented in vanilla rust
-to examine the otherworldly wizardy
+Here is a (very preliminary) tree-model \
+implemented in vanilla rust \
+to examine the otherworldly wizardy \
 of: horsey game
 
 # Command Line
