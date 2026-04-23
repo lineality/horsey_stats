@@ -48,14 +48,14 @@ row_id,game_id,age,height,experience,weight,rank,completion
 To predict the outcome before a game ends:
 
 ```path
-/horsey_stats/data/test_train_data.csv
+/horsey_stats/data/predict.csv
 ```
 
 E.g.
 ```csv
 row_id,game_id,age,height,experience,weight,rank,completion
-64,17,2,134,1,642,0,0
-65,17,2,115,0,374,1,1
-66,17,2,159,1,1419,3,1
-67,17,6,128,2,643,2,1
+64,17,2,134,1,642,,
+65,17,2,115,0,374,,
+66,17,2,159,1,1419,,
+67,17,6,128,2,643,,
 ```
