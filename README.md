@@ -23,7 +23,7 @@ cargo run -- predict
 
 # Using Files: .train & .predict
 
-### Add to training/testing/validation data:
+### Add to training/testing/validation data
 
 As games are run, record results in path:
 
@@ -43,7 +43,7 @@ row_id,game_id,age,height,experience,weight,rank,completion
 7,2,2,151,1,956,0,0
 ```
 
-### Provide starting values for a prediction:
+### Provide starting values for a prediction
 
 To predict the outcome before a game ends:
 
@@ -59,3 +59,10 @@ row_id,game_id,age,height,experience,weight,rank,completion
 66,17,2,159,1,1419,,
 67,17,6,128,2,643,,
 ```
+
+
+#### Lexicon
+- row_id: unique row id
+- game_id: unique game id (used to train for associations within a game's data, N players)
+- rank: results of race, 1 = 1st place, 0 = not completed
+- completion: boolean, 1 = finished race, 2 = did not finish race
