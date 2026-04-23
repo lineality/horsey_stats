@@ -1,0 +1,104 @@
+
+# Horse Racing Stat Classifier — Configuration File
+# stats_config.toml
+#
+# All paths are relative to the directory from which `cargo run` is invoked
+# (the project root). Adjust as needed.
+#
+# All integer fields that contain invalid values are silently replaced
+# with their built-in defaults (see StatsConfig::default_config in main.rs).
+
+# -----------------------------------------------------------------------
+# Data paths
+# -----------------------------------------------------------------------
+
+# The single user-maintained historical data file.
+#
+# Contains all races with known outcomes. Add five new rows (one per horse)
+# after each real-world race completes. The system splits this file
+# internally by game_id group into train and validate partitions — you
+# never need to manually split or copy this file.
+#
+# Schema: row_id,game_id,age,height,experience,weight,rank,completion
+test_train_data_csv_path = "data/test_train_data.csv"
+
+# The upcoming race's horses, whose outcomes are not yet known.
+# rank and completion columns should be blank or 0.
+# Replace this file's contents before each prediction run.
+#
+# Schema: row_id,game_id,age,height,experience,weight,rank,completion
+predict_csv_path = "data/predict.csv"
+
+# -----------------------------------------------------------------------
+# Output directories
+# -----------------------------------------------------------------------
+
+# Directory where trained model files are saved (and loaded from during
+# predict mode). Created automatically if it does not exist.
+models_dir = "models"
+
+# Directory where timestamped results files are written.
+# Created automatically if it does not exist.
+results_dir = "results"
+
+# -----------------------------------------------------------------------
+# Tree hyperparameters (defaults used if no hyperparameter search is run)
+# -----------------------------------------------------------------------
+
+# Maximum depth the decision tree is allowed to grow.
+# Shallow trees (2-3) generalise better on small data.
+# Deep trees (5-6) can overfit with ~200 rows.
+tree_max_depth = 4
+
+# Minimum number of training samples that must reach any leaf.
+# Higher values reduce overfitting on small groups.
+tree_min_leaf_samples = 2
+
+# -----------------------------------------------------------------------
+# Train / validate / test split
+# -----------------------------------------------------------------------
+
+# Fraction of game_id groups held out as the test set.
+# These groups are never used during hyperparameter search (Stage 1).
+# They are evaluated exactly once after hyperparameter selection is
+# complete, providing an unbiased accuracy estimate.
+# Must be between 1 and 50.
+test_fraction_percent = 20
+
+# Of the remaining (non-test) groups, the fraction used for training
+# within the hyperparameter search. The rest are the validate partition.
+# Must be between 1 and 99.
+training_fraction_percent = 80
+
+# Seed for the deterministic race-group shuffle used in the split.
+# Changing this seed changes which races go into train vs. validate.
+# Keep constant across experiments to ensure comparable results.
+split_seed = 42
+
+# -----------------------------------------------------------------------
+# Linear margin model thresholds
+# -----------------------------------------------------------------------
+
+# Failure-rate percent threshold for the completion (classification)
+# margin boundary scanner. A feature-value group whose completion failure
+# rate is at or above this threshold is included in the risk zone.
+# Range: 0-100. 50 means "majority failure rate triggers a boundary."
+linear_margin_threshold_classification = 50
+
+# Performance-score threshold for the regression margin boundary scanner.
+# A feature-value group whose mean performance score is at or below this
+# threshold is included in the risk zone.
+# Range: 0-1000. 400 means "mean score in the bottom 40% triggers a boundary."
+linear_margin_threshold_regression = 400
+
+# -----------------------------------------------------------------------
+# Hyperparameter search grid
+# -----------------------------------------------------------------------
+
+# Comma-separated list of tree max-depth values to try in Stage 1.
+# Each depth is combined with each min-leaf-samples value below,
+# producing (len(depths) x len(min_samples)) candidate combinations.
+hyperparam_search_max_depths = 2,3,4,5,6
+
+# Comma-separated list of minimum-leaf-sample values to try in Stage 1.
+hyperparam_search_min_leaf_samples = 1,2,3

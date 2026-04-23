@@ -1,0 +1,10 @@
+horse_racing_linear_margin_v1
+label_kind=completion_classification
+threshold_used=50
+feature_count=6
+feature=age low_boundary=2 high_boundary=none low_rate=57 high_rate=0
+feature=height low_boundary=128 high_boundary=none low_rate=80 high_rate=0
+feature=experience low_boundary=1 high_boundary=none low_rate=53 high_rate=0
+feature=weight low_boundary=623 high_boundary=1428 low_rate=100 high_rate=100
+feature=height_to_weight_ratio_times_one_thousand low_boundary=109 high_boundary=222 low_rate=100 high_rate=83
+feature=age_times_experience low_boundary=4 high_boundary=none low_rate=54 high_rate=0
